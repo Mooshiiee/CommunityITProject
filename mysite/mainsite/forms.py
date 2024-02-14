@@ -7,5 +7,8 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ['first_name', 'last_name', 'email', 'body', 'location']
         widgets = {
-            'body': forms.Textarea(attrs={'rows': 7, 'cols': 70,'style': "width:100%;"}),
+            'body': forms.Textarea(attrs={'rows': 7, 'cols': 50,'style': "width:90%;"}),
+        }
+        labels = {
+            'body': 'Tell me about your technology goals'
         }
