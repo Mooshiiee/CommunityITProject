@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from mainsite.forms import ContactForm
@@ -23,29 +24,18 @@ class ThanksView(TemplateView):
 class ContactView(FormView):
     template_name = "contact.html"
     form_class = ContactForm
-    success_url = "/thanks"
     
-    def submitData(request):
-        # if this is a POST request we need to process the form data
-        if request.method == "POST":
-            # create a form instance and populate it with data from the request:
-            form = ContactForm(request.POST)
-            # check whether it's valid:
-            if form.is_valid():
-                # process the data in form.cleaned_data as required
-                first_name = form.cleaned_data[first_name]
-                last_name = form.cleaned_data[last_name]
-                email = form.cleaned_data[email]
-                body = form.cleaned_data[body]
-                location = form.cleaned_data[location]
-                
-                p = Contact(first_name,last_name,email,body,location)
-                p.save()
-                # redirect to a new URL:
-                return HttpResponseRedirect("/thanks")
-
-        # if a GET (or any other method) we'll create a blank form
-        else:
-            form = ContactForm()
-
-        return render(request, "name.html", {"form": form})
+    def form_valid(self, form):
+        # Process the form data
+        first_name = form.cleaned_data['first_name']
+        last_name = form.cleaned_data['last_name']
+        email = form.cleaned_data['email']
+        body = form.cleaned_data['body']
+        location = form.cleaned_data['location']
+        
+        # Create and save the Contact object
+        p = Contact(first_name = first_name, last_name = last_name, email = email, body = body, location = location)
+        p.save()
+    
+        # Redirect to the success URL
+        return HttpResponseRedirect(reverse('mainsite:thanks'))

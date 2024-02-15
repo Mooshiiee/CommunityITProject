@@ -3,7 +3,7 @@
 {% block content %}
 <div class='w3-container w3-large w3' style="padding:84px; padding-left: 120px;">
 
-    <form method="post">
+    <form action='/contact' method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Send message">

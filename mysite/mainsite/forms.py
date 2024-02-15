@@ -10,5 +10,5 @@ class ContactForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'rows': 7, 'cols': 50,'style': "width:90%;"}),
         }
         labels = {
-            'body': 'Tell me about your technology goals'
+            'body': 'Tell us about your technology goals'
         }
