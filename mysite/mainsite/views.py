@@ -20,6 +20,7 @@ class ClassesView(TemplateView):
 
 class ThanksView(TemplateView):
     template_name = "thanks.html"
+    
 
 class ContactView(FormView):
     template_name = "contact.html"
@@ -39,3 +40,4 @@ class ContactView(FormView):
     
         # Redirect to the success URL
         return HttpResponseRedirect(reverse('mainsite:thanks'))
+    
