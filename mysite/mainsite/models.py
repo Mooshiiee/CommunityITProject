@@ -8,7 +8,11 @@ class Contact(models.Model):
     body = models.TextField()
     location_choices = [
         ('WH', 'West Haven'),
-        ('ST', 'Surrounding town'),
+        ('MF', 'Milford'),
+        ('OR', 'Orange'),
+        ('HD', 'Hamden'),
+        ('NH', 'New Haven'), 
+        ('NA', 'Other'),
     ]
     location = models.CharField(max_length=2, choices=location_choices)
     
