@@ -20,7 +20,9 @@ class ClassesView(TemplateView):
 
 class ThanksView(TemplateView):
     template_name = "thanks.html"
-    
+
+class DNPView(TemplateView):
+    template_name = "dnp.html"
 
 class ContactView(FormView):
     template_name = "contact.html"

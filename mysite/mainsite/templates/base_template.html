@@ -19,20 +19,27 @@
         .fa-anchor,.fa-coffee {
             font-size:200px
         }
+        .active {
+          background-color: #ffffff; /* Change to your desired highlight color */
+          color: #333; /* Change to your desired text color */
+        }
     </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <div class="w3-top">
-  <div class="w3-bar w3-pale-yellow w3-card w3-center w3-xlarge">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="/" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="/resources" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Resources</a>
-    <a href="/classes" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Classes</a>
-    <a href="/contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Contact</a>
-    <a href="/contribute" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-align-right">Contribute</a>
+  <div class="w3-bar w3-pale-yellow w3-card w3-xlarge">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/dnp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/dnp' %}active{% endif %} w3-right">Digital Navigator Program</a>
+    <a href="/contribute" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/contribute' %}active{% endif %} w3-right">Contribute</a>
+    <a href="/contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/contact' %}active{% endif %} w3-right">Contact</a>
+    <a href="/classes" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/classes' %}active{% endif %} w3-right">Classes</a>
+    <a href="/resources" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/resources' %}active{% endif %} w3-right">Resources</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large {% if request.path == '/' %}active{% endif %} w3-right">Home</a>
   </div>
+</div>
+
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
@@ -49,6 +56,7 @@
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
     <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <a href="https://www.digitalinclusion.org/join/"><img alt="NDIA | National Digital Inclusion Alliance | Affiliate" src="https://www.digitalinclusion.org/wp-content/uploads/2022/06/ndia-affiliate-badge-215.png"/></a>
  </div>
  <p>Made By Mustafa Bolat</a></p>
 </footer>
