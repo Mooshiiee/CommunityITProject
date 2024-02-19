@@ -23,3 +23,14 @@ class Contact(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
+class Classes(models.Model):
+    name = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    time = models.DateTimeField(auto_now=False, auto_now_add=False)
+    town = models.CharField(max_length=50)
+    availability = models.CharField(max_length=50)
+    descritption = models.TextField()
+    
+    def __str__(self):
+        return f"{self.name} {self.availability}"
