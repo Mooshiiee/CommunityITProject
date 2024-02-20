@@ -1,6 +1,13 @@
 {% extends "base_template.html" %}
 
 {% block content %}
+
+<style>
+    .larger-font {
+        font-size: 18px;
+    }
+</style>
+
 {% csrf_token %}
 
 
@@ -10,29 +17,34 @@
  
 <body>
   
-<div class="w3-row-padding w3-padding-64" style="margin:16px 256px;" >
-    {% for class_obj in classes_list %}
-    <div class="w3-card w3-margin-bottom">
-        <div class="w3-row">
-            <div class="w3-half">
-                <div class="w3-container">
-                    <h3>{{ class_obj.name }}</h3>
-                    <p><strong>Location:</strong> {{ class_obj.location }}</p>
-                    <p><strong>Address:</strong> {{ class_obj.address }}</p>
-                    <p><strong>Description:</strong> {{ class_obj.description }}</p>
+<div class="w3-col">
+    <div class="w3-container w3-row-padding w3-padding-64" style="padding-left: 50px; padding-right: 50px;">
+        {% for class_obj in classes_list %}
+        <div class="w3-card w3-margin-bottom" >
+            <div class="w3-row">
+                <div class="w3-third">
+                    <div class="w3-container">
+                        <h3>{{ class_obj.name }}</h3>
+                        <p><strong>Location:</strong> {{ class_obj.location }}</p>
+                        <p><strong>Address:</strong> {{ class_obj.address }},  {{ class_obj.town }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="w3-half">
-                <div class="w3-container">
-                    <p><strong>Town:</strong> {{ class_obj.town }}</p>
-                    <p><strong>Date:</strong> {{ class_obj.time|date:"M d, Y" }}</p>
-                    <p><strong>Time:</strong> {{ class_obj.time|time:"g:i A" }}</p>
-                    <p><strong>Availability:</strong> {{ class_obj.availability }}</p>
+                <div class="w3-third">
+                    <div class="w3-container">
+                        <p><strong>Description:</strong> {{ class_obj.description }}</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div class="w3-container">
+                        <p><strong>Date:</strong> {{ class_obj.time|date:"M d, Y" }}</p>
+                        <p><strong>Time:</strong> {{ class_obj.time|time:"g:i A" }}</p>
+                        <p>{{ class_obj.availability }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 </body>

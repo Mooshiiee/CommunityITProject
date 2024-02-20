@@ -30,7 +30,7 @@ class Classes(models.Model):
     time = models.DateTimeField(auto_now=False, auto_now_add=False)
     town = models.CharField(max_length=50)
     availability = models.CharField(max_length=50)
-    descritption = models.TextField()
+    description = models.CharField(max_length=512)
     
     def __str__(self):
         return f"{self.name} {self.availability}"
