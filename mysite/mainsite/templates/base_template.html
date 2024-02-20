@@ -1,64 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    {% load static %}
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
+    <title>{% block title %}{% endblock title %}</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %}Your Site Title{% endblock %}</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZwT"
-        crossorigin="anonymous">
-    <!-- Your custom styles can be added here -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
-        body {
-            padding-top: 20px; /* Small margin for accessibility settings */
+        body,h1,h2,h3,h4,h5,h6 {
+            font-family: "Lato", sans-serif
         }
-        .navbar {
-            margin-bottom: 20px;
+        .w3-bar,h1,button {
+            font-family: "Montserrat", sans-serif
         }
-        .footer {
-            background-color: #f611fa;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
+        .fa-anchor,.fa-coffee {
+            font-size:200px
+        }
+        .active {
+          background-color: #ffffff; /* Change to your desired highlight color */
+          color: #333; /* Change to your desired text color */
         }
     </style>
 </head>
-
 <body>
 
-
-<img src="https://i.postimg.cc/hv6tjswZ/logo-corgi.jpg" alt="Logo" height="120">
-    
-<div class="container">
-    <ul class="nav bg-info">
-        <li class="nav-item">
-            <a class="nav-link link-light" href="/">Resources</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link link-light" href="/contribute">Contribute</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link link-light" href="/contact">Contact</a>
-            </li>
-    </ul>
-      
-    {% block content %}
-    {% endblock %}   
-
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-pale-yellow w3-card w3-xlarge">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/dnp" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/dnp' %}active{% endif %} w3-right">Digital Navigator Program</a>
+    <a href="/contribute" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/contribute' %}active{% endif %} w3-right">Contribute</a>
+    <a href="/contact" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/contact' %}active{% endif %} w3-right">Contact</a>
+    <a href="/classes" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/classes' %}active{% endif %} w3-right">Classes</a>
+    <a href="/resources" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white {% if request.path == '/resources' %}active{% endif %} w3-right">Resources</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large {% if request.path == '/' %}active{% endif %} w3-right">Home</a>
+  </div>
 </div>
 
-<div class="footer">
-     <p>&copy; {% now "Y" %} Your Site Name. All Rights Reserved.</p>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="/resources" class="w3-bar-item w3-button w3-padding-large">Resources</a>
+    <a href="/classes" class="w3-bar-item w3-button w3-padding-large">Classes</a>
+    <a href="/contact" class="w3-bar-item w3-button w3-padding-large">Contact</a>
+    <a href="/contribute" class="w3-bar-item w3-button w3-padding-large">Contribute</a>
+  </div>
 </div>
+
+{% block content %}{% endblock content %}
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-48">
+    <a href="https://www.linkedin.com/in/mustafabolat1/"><i class="fa fa-linkedin w3-hover-opacity" style="width: 32px;"></i></a>
+    <a href="https://github.com/Mooshiiee"><i class="fa fa-github w3-hover-opacity" style="width: 32px;"></i></a>
+
+    <a href="https://www.digitalinclusion.org/"><img alt="NDIA | National Digital Inclusion Alliance | Affiliate" src="https://www.digitalinclusion.org/wp-content/uploads/2022/06/ndia-affiliate-badge-215.png" style="width: 150px;paddding-left:32px;"></a>
+ </div>
+ <p>Made By Mustafa Bolat</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
 
 </body>
-
 </html>
