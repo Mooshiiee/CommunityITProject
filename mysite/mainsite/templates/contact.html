@@ -1,6 +1,11 @@
 {% extends "base_template.html" %}
 
 {% block content %}
+
+<header class="w3-container w3-light-blue w3-center" style="padding-top:84px;padding-bottom:32px;padding: left 16px; x">
+    <h1>Let us help you! Get in Contact With Us.</h1>
+</header>
+
 <div class='w3-container w3-large w3' style="padding:84px; padding-left: 120px;">
 
     <form action='/contact' method="post">
@@ -9,5 +14,10 @@
         <input type="submit" value="Send message">
     </form>
 
+</div>
+
+<div class='w3-container w3-pale-blue w3-center' style="padding-top:32px;padding-bottom:32px;padding: left 16px; x">
+    <h2>Having trouble? </h2>
+    <h3>You may email us as at</h3>
 </div>
 {% endblock content %}
